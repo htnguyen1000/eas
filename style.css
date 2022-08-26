@@ -6,7 +6,10 @@
 #container {
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), minmax(0,2fr));
+    height: 600px;
+    width: 600px;
+    margin: 4em auto;
   }
 
 .grid-item {
@@ -18,5 +21,9 @@
 .title {
     text-align: center;
     font-size: 100px;
+    margin-bottom: 5px;
 }
 
+.buttonDiv {
+  text-align: center;
+}
