@@ -4,18 +4,28 @@
 
 const container = document.getElementById("container");
 
-function makeRows(rows, columns) {
-    container.style.setProperty('--grid-rows', rows);
-    container.style.setProperty('--grid-cols', cols);
-    console.log(container);
-    console.log(rows)
-    console.log(columns)
-    for (i = 0; i < (rows*columns); i++) {
-        let cell = document.createElement("div");
-        cell.innerText = (i+1);
-        container.appendChild(cell).className = "grid-item"
-    }
-}
 
-makeRows(16,16)
+function makeRows(rows, cols) {
+  container.style.setProperty('--grid-rows', rows);
+  container.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < (rows * cols); c++) {
+    let cell = document.createElement("div");
+    container.appendChild(cell).className = "grid-item";
+    cell.addEventListener("mouseover", () => {
+        cell.style.backgroundColor = random_bg_color();
+    })
+  };
+};
 
+// function random_bg_color() {
+//     var x = Math.floor(Math.random() * 256);
+//     var y = Math.floor(Math.random() * 256);
+//     var z = Math.floor(Math.random() * 256);
+//     var bgColor = "rgb(" + x + "," + y + "," + z +")";
+// }
+
+
+makeRows(16, 16);
+
+
+// hover effect ; when mouse enters div, hover starts and color is changed 
